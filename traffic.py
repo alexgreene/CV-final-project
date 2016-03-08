@@ -4,7 +4,7 @@ import time
 
 import numpy
 import cv2
-
+#test by jackson for push
 def grab_traffic_cam(url, filename):
     urllib.urlretrieve('http://207.251.86.238/cctv696.jpg', filename)
 
