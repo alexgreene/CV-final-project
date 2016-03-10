@@ -13,7 +13,7 @@ def update_resources():
 
     for i in range(1, 4): 
         print "Collecting Image " + str(i) + "..."
-        grab_traffic_cam('http://207.251.86.238/cctv696.jpg', 'nyc_00' + str(i) + '.png')
+        grab_traffic_cam('http://207.251.86.238/cctv696.jpg', 'nyc_00' + str(i) + '.jpg')
         print time.ctime()
         print "... Image " + str(i) + " Collected"
 
@@ -51,6 +51,6 @@ def bg_subtract():
 
 #RUN 
 update_resources() # pictures'A' and 'B' are now in the current directory
-bg_subtract() 
+#bg_subtract() 
 
 
