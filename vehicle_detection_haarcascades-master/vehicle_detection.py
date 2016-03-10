@@ -4,8 +4,8 @@ import cv2
 print(cv2.__version__)
 
 cascade_src = 'cars.xml'
-video_src = 'dataset/output.avi'#'mmsh://sv04msmedia2.dot.ca.gov/D5-Los-Osos-Valley-Rd-at-101?MSWMExt=.asf'
-#video_src = 'dataset/video2.avi'
+video_src = 'dataset/output.avi'
+#video_src = 'mmsh://sv04msmedia2.dot.ca.gov/D5-Los-Osos-Valley-Rd-at-101?MSWMExt=.asf'
 
 cap = cv2.VideoCapture(video_src)
 car_cascade = cv2.CascadeClassifier(cascade_src)
@@ -21,12 +21,12 @@ while True:
     masked_data = cv2.bitwise_and(gray, mask)
     
     
-    cars = car_cascade.detectMultiScale(masked_data, 1.1, 1, 0, (45,45))
+    cars = car_cascade.detectMultiScale(masked_data, 1.1, 2, 0, (30,30), (100,100))
 
     for (x,y,w,h) in cars:
         cv2.rectangle(img,(x,y),(x+w,y+h),(0,255,0),2)      
     
-    cv2.imshow('video', img)
+    cv2.imshow('101 LOVR VIDEO PLAYBACK', img)
     
     if cv2.waitKey(33) == 27:
         break
