@@ -73,6 +73,7 @@ while True:
 	cv2.imshow("Security Feed", frame)
 	cv2.imshow("Thresh", thresh)
 	cv2.imshow("Frame Delta", frameDelta)
+	firstFrame = gray
 	key = cv2.waitKey(1) & 0xFF
  
 	# if the `q` key is pressed, break from the lop
