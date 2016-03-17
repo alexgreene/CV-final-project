@@ -1,21 +1,21 @@
-import numpy as np
 import cv2
+import numpy as np
 
-cap = cv2.VideoCapture('mmsh://sv04msmedia2.dot.ca.gov/D5-Los-Osos-Valley-Rd-at-101?MSWMExt=.asf')
+cam = cv2.VideoCapture('test_stream.mov')
 
-fourcc = cv2.VideoWriter_fourcc(*'XVID')
-video_writer = cv2.VideoWriter("output.avi", fourcc, 15, (640, 480))
+fgbg = cv2.BackgroundSubtractorMOG()
 
-while(cap.isOpened()):
-	ret, frame = cap.read()
-	if ret:
-		cv2.imshow('vid', frame)
-		video_writer.write(frame)
-	else:
-		print 'oh no'
-		break
-	if cv2.waitKey(67) & 0xFF == ord('q'):
-		break
+while(cam.isOpened): 
+   f,img=cam.read()
 
-cap.release()
+   if f==True:
+       #img=cv2.flip(img,1)
+       #img=cv2.medianBlur(img,3)
+       #fgmask = fgbg.apply(img)
+       cv2.imshow('track',img)
+
+   if(cv2.waitKey(67)!=-1):
+       break 
+
+cam.release()
 cv2.destroyAllWindows()
